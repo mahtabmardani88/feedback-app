@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+
+  postgres-db:
+    container_name: feedback-postgres
+    image: postgres:17.3-bullseye
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    volumes:
+      - "./initdb:/docker-entrypoint-initdb.d"
+    ports:
+      - 5432:5432
